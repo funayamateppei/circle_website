@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css">  
+  <title>サークル掲載サイト</title>
+</head>
+<body>
+  <div class="top">
+    <div class="container">
+      <h1>サークル掲載サイト</h1>
+    </div>
+  </div>
+
+
+  <div class="form">
+    <div class="container">
+      <h2>大学検索</h2>
+      <label for="collegeName">大学名</label>
+      <input id='collegeName' type="text" placeholder="大学名">
+      <button form="collegeName">Search</button>
+    </div>
+  </div>
+
+  <div class="display">
+    <div class="container">
+      <div class="item">
+        <h2>LYNX</h2>
+        <div class="description">
+          <img src="../img/IMG_7850-ori.jpg" alt="circle-img">
+          <p>活動内容</p>
+        </div>
+        <div class="snsLink">
+          <a href="#">instagram</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- hamburger -->
+      <div class="nav">
+        <p>掲載したいサークルが<br>ある方はこちら<br>↓↓↓</p>
+        <div class="navbar">
+          <div class="line line1"></div>
+          <div class="line line2"></div>
+          <div class="line line3"></div>
+        </div>
+      </div>
+
+
+  <div class="loginDisplay">
+    <div class="login">
+      <h2>ログイン画面</h2>
+      <div class="form">
+        <div class="id">
+          <label for="email">E-Mail</label>
+          <input id="email" type="email">
+        </div>
+        <div class="pass">
+          <label for="pass">Password</label>
+          <input id="pass" type="password">
+        </div>
+        <button id="login" onclick="location.href='../html/submit.html'">ログイン</button>
+      </div>
+    </div>
+      <div class="signUp">
+        <h2>新規登録</h2>
+        <div class="form">
+          <div class="id">
+            <label for="email">E-Mail</label>
+            <input id="email" type="email">
+          </div>
+          <div class="pass">
+            <label for="pass">Password</label>
+            <input id="pass" type="password">
+          </div>
+          <button id="login" onclick="location.href='../html/submit.html'">登録</button>
+        </div>
+      </div>
+  </div>
+
+  <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>  
+
+
+<!-- js -->
+<script src="../js/index.js"></script>
+</body>
+</html>
