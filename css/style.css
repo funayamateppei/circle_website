@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.error {
+  color: red;
+}
+
 /* ----------------------------- login ------------------------------- */
 /* .login {
   display: none;
@@ -251,13 +255,13 @@
 }
 
 
-/* ---------------------- login ------------------------ */
-/* .list-active {
+/* ---------------------- sidemenu ------------------------ */
+.list-active {
   transform: translateX(0%) !important;
   transition: .5s;
 }
 
-.loginDisplay {
+.sidemenu {
   font-family: 'Caveat', cursive, 'RocknRoll One', sans-serif;
   background-color: white;
   position: fixed;
@@ -297,4 +301,4 @@
 .login button {
   width: 70px;
   margin-top: 15px;
-} */
+}
