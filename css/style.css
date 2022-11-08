@@ -1,28 +1,20 @@
-html {
-  overflow: hidden;
-  height: 100%;
-}
-
-body {
-  overflow: hidden;
-}
-
 .container {
   width: 80%;
   margin: 0 auto;
 }
 
-
+/* ------------------------------ home -------------------------------- */
+.home {
+  display: none;
+}
 /* --------------------- top ----------------------- */
 .top {
   display: flex;
   align-items: center;
   background-color: orange;
-  height: 300px;
+  height: 250px;
   overflow: hidden;
 }
-
-
 
 .top h1 {
   text-align: center;
@@ -33,7 +25,14 @@ body {
 
 
 /* --------------------- form ------------------------ */
+.form .container {
+  border-bottom: 1px solid gray;
+  padding-bottom: 30px;
+}
 
+.form h2, .form label {
+  padding-left: 20px;
+}
 
 /* --------------------- display ------------------------- */
 .display {
@@ -42,9 +41,8 @@ body {
 
 .item {
   border-top: 1px solid gray;
-  margin-top: 10px;
-  padding: 10px;
-  height: 300px;
+  margin-top: 5px;
+  padding: 10px;  
 }
 
 .description {
@@ -54,11 +52,44 @@ body {
   height: 100%;
 }
 
-.description img, .description p {
+.display h2 {
+  margin: 10px;
+}
+
+.description img,
+.description .sentence {
   width: 50%;
   padding: 20px;
   margin: 0;
+  height: 100%;
 }
+
+.description img {
+  object-fit: cover;
+}
+
+#workDetail {
+  font-size: 18px;
+  margin: 10px 0;
+}
+#sentence {
+  height: 190px;
+  margin: 5px 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.snsLink {
+  display: flex;
+  justify-content: end;
+}
+
+.snsLink a {
+  width: 100px;
+  margin: 10px;
+}
+/* -------------------------------------------------------------------- */
 
 
 
@@ -148,21 +179,24 @@ body {
   align-items: center;
 }
 
-.signUp, .login {
+.signUp,
+.login {
   margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.signUp label, .login label {
+.signUp label,
+.login label {
   display: inline-block;
   text-align: center;
   margin: 10px 0;
   width: 80px;
 }
 
-.signUp button, .login button {
+.signUp button,
+.login button {
   width: 70px;
   margin-top: 15px;
 }

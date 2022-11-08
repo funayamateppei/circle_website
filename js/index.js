@@ -9,3 +9,6 @@ bar.addEventListener('click', () => {
   bar.classList.toggle('toggle');
   p.classList.toggle('none');
 });
+
+
+// ------------------------- main -------------------------------
