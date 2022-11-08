@@ -3,10 +3,108 @@
   margin: 0 auto;
 }
 
+/* ----------------------------- login ------------------------------- */
+/* .login {
+  display: none;
+} */
+
+.loginForm {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.loginForm h2 {
+  text-align: center;
+}
+
+.mailForm,
+.passForm {
+  margin: 20px;
+}
+
+.loginForm label {
+  display: inline-block;
+  text-align: right;
+  width: 120px;
+  margin-right: 10px;
+}
+
+.loginForm input {
+  width: 300px;
+  text-align: center;
+}
+
+.loginForm button {
+  margin: 20px;
+}
+
+.signupLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginError {
+  display: none;
+  text-align: center;
+  color: red;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* ----------------------------- signup -------------------------------- */
+.signup {
+  display: none;
+}
+
+.signupForm {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.signupForm h2 {
+  text-align: center;
+}
+
+.signupForm label {
+  display: inline-block;
+  text-align: right;
+  width: 120px;
+  margin-right: 10px;
+}
+
+.signupForm input {
+  width: 300px;
+  text-align: center;
+}
+
+.signupForm button {
+  margin: 20px;
+}
+
+.loginLink {
+  display: flex;
+  justify-content: end;
+}
+
+/* --------------------------------------------------------------------- */
+
 /* ------------------------------ home -------------------------------- */
 .home {
   display: none;
 }
+
 /* --------------------- top ----------------------- */
 .top {
   display: flex;
@@ -20,17 +118,14 @@
   text-align: center;
 }
 
-
-/* --------------------- login ----------------------- */
-
-
 /* --------------------- form ------------------------ */
 .form .container {
   border-bottom: 1px solid gray;
   padding-bottom: 30px;
 }
 
-.form h2, .form label {
+.form h2,
+.form label {
   padding-left: 20px;
 }
 
@@ -42,7 +137,7 @@
 .item {
   border-top: 1px solid gray;
   margin-top: 5px;
-  padding: 10px;  
+  padding: 10px;
 }
 
 .description {
@@ -72,6 +167,7 @@
   font-size: 18px;
   margin: 10px 0;
 }
+
 #sentence {
   height: 190px;
   margin: 5px 5px;
@@ -80,6 +176,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .snsLink {
   display: flex;
   justify-content: end;
@@ -89,6 +186,7 @@
   width: 100px;
   margin: 10px;
 }
+
 /* -------------------------------------------------------------------- */
 
 
@@ -154,7 +252,7 @@
 
 
 /* ---------------------- login ------------------------ */
-.list-active {
+/* .list-active {
   transform: translateX(0%) !important;
   transition: .5s;
 }
@@ -199,4 +297,4 @@
 .login button {
   width: 70px;
   margin-top: 15px;
-}
+} */

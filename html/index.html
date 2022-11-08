@@ -1,23 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css">  
+  <link rel="stylesheet" href="../css/style.css">
   <title>各大学サークル掲載サイト</title>
 </head>
+
 <body>
 
-<!-- ---------- Home ------------- -->
-    <div class="top">
-      <div class="container">
-        <h1>サークル掲載サイト</h1>
+  <div class="top">
+    <div class="container">
+      <h1>サークル掲載サイト</h1>
+    </div>
+  </div>
+  <!-- ---------- login ------------- -->
+  <div class="login">
+    <div class="container">
+      <div class="loginForm">
+        <h2>ログイン</h2>
+        <div class="mailForm">
+          <label for="loginMail">メールアドレス:</label>
+          <input id="loginMail" type="email">
+        </div>
+        <div class="passForm">
+          <label for="loginPass">パスワード:</label>
+          <input id="loginPass" type="pass">
+        </div>
+        <button id="loginBtn">ログイン</button>
+
+        <div class="loginError">
+          <p>ログインに失敗しました。</p>
+          <p>新規登録が済んでいない方は下記よりご登録ください</p>
+        </div>
+      </div>
+
+      <div class="signupLink">
+        <p>登録が済んでいない方はこちら</p>
+        <button id="signupLink">新規登録</button>
       </div>
     </div>
+  </div>
+  <!-- ---------- /login ------------- -->
 
-<div class="home">
+  <!-- ---------- signup ------------- -->
+  <div class="signup">
+    <div class="container">
+      <div class="signupForm">
+        <h2>新規登録</h2>
+        <div class="mailForm">
+          <label for="signupMail">メールアドレス:</label>
+          <input id="signupMail" type="email">
+        </div>
+        <div class="passForm">
+          <label for="signupPass">パスワード:</label>
+          <input id="signupPass" type="pass">
+        </div>
+        <div class="passForm">
+          <label for="signupPass">パスワード:</label>
+          <input id="signupPass" type="pass" placeholder="確認用">
+        </div>
+        <button id="signupBtn">新規登録</button>
+      </div>
+
+      <div class="loginLink">
+        <button id="loginLink">ログイン画面に戻る</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- ---------- /signup ------------- -->
+
+  <!-- ---------- Home ------------- -->
+  <div class="home">
     <!-- 大学で検索 機能 -->
     <div class="form">
       <div class="container">
@@ -36,7 +100,9 @@
             <img src="../img/IMG_7850-ori.jpg" alt="circle-img">
             <div class="sentence">
               <p id="workDetail">活動内容</p>
-              <p id="sentence">活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle</p>
+              <p id="sentence">
+                活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle
+              </p>
             </div>
           </div>
           <div class="snsLink">
@@ -51,7 +117,9 @@
             <img src="../img/IMG_7850-ori.jpg" alt="circle-img">
             <div class="sentence">
               <p id="workDetail">活動内容</p>
-              <p id="sentence">活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle</p>
+              <p id="sentence">
+                活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle
+              </p>
             </div>
           </div>
           <div class="snsLink">
@@ -63,10 +131,10 @@
       </div>
     </div>
   </div>
-<!-- ---------- /Home ------------- -->
-  
+  <!-- ---------- /Home ------------- -->
+
   <!-- hamburger -->
-      <div class="nav">
+  <!-- <div class="nav">
         <p>掲載したいサークルが<br>ある方はこちら<br>↓↓↓</p>
         <div class="navbar">
           <div class="line line1"></div>
@@ -105,14 +173,15 @@
           <button id="login" onclick="location.href='../html/submit.html'">登録</button>
         </div>
       </div>
-  </div>
+  </div> -->
 
   <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"
-  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>  
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
 
-<!-- js -->
-<script src="../js/index.js"></script>
+  <!-- js -->
+  <script src="../js/index.js"></script>
 </body>
+
 </html>
