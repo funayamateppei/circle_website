@@ -3,10 +3,146 @@
   margin: 0 auto;
 }
 
+.error {
+  color: red;
+}
+
+/* ---------------------------- header ----------------------------- */
+header {
+  background-color: rgba(79, 143, 255, .8);
+  display: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 80px;
+}
+
+header .container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100%;
+}
+
+.end {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#logout {
+  margin-right: 20px;
+}
+/* ----------------------------------------------------------------- */
+
+/* ----------------------------- login ------------------------------- */
+/* 最初の画面 */
+/* .login {
+  display: none;
+} */
+
+.loginForm {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.loginForm h2 {
+  text-align: center;
+}
+
+.mailForm,
+.passForm {
+  margin: 20px;
+}
+
+.loginForm label {
+  display: inline-block;
+  text-align: right;
+  width: 120px;
+  margin-right: 10px;
+}
+
+.loginForm input {
+  width: 300px;
+  text-align: center;
+}
+
+.loginForm button {
+  margin: 20px;
+}
+
+.signupLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginError {
+  display: none;
+  text-align: center;
+  color: red;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* ----------------------------- signup -------------------------------- */
+.signup {
+  display: none;
+}
+
+.signupForm {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.signupForm h2 {
+  text-align: center;
+}
+
+.signupForm label {
+  display: inline-block;
+  text-align: right;
+  width: 120px;
+  margin-right: 10px;
+}
+
+.signupForm input {
+  width: 300px;
+  text-align: center;
+}
+
+.signupForm button {
+  margin: 20px;
+}
+
+.loginLink {
+  display: flex;
+  justify-content: end;
+}
+
+/* --------------------------------------------------------------------- */
+
 /* ------------------------------ home -------------------------------- */
 .home {
   display: none;
 }
+
 /* --------------------- top ----------------------- */
 .top {
   display: flex;
@@ -20,17 +156,14 @@
   text-align: center;
 }
 
-
-/* --------------------- login ----------------------- */
-
-
 /* --------------------- form ------------------------ */
-.form .container {
+.search .container {
   border-bottom: 1px solid gray;
   padding-bottom: 30px;
 }
 
-.form h2, .form label {
+.search h2,
+.search label {
   padding-left: 20px;
 }
 
@@ -42,7 +175,7 @@
 .item {
   border-top: 1px solid gray;
   margin-top: 5px;
-  padding: 10px;  
+  padding: 10px;
 }
 
 .description {
@@ -72,6 +205,7 @@
   font-size: 18px;
   margin: 10px 0;
 }
+
 #sentence {
   height: 190px;
   margin: 5px 5px;
@@ -80,6 +214,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .snsLink {
   display: flex;
   justify-content: end;
@@ -89,10 +224,8 @@
   width: 100px;
   margin: 10px;
 }
+
 /* -------------------------------------------------------------------- */
-
-
-
 
 /* ------------------------ hamburger -------------------------- */
 .none {
@@ -101,23 +234,22 @@
 }
 
 .nav {
-  position: fixed;
-  top: 30px;
-  right: 30px;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav p {
-  font-size: 16px;
-  margin: 0 0 10px 0;
+  margin: 0;
+  font-size: 12px;
   transition: .3s;
   text-align: center;
 }
 
 .navbar {
+  z-index: 10;
   cursor: pointer;
-  width: 68px;
-  width: 100%;
+  width: 30px;
   height: 30px;
   padding: 0;
   display: flex;
@@ -153,13 +285,15 @@
 }
 
 
-/* ---------------------- login ------------------------ */
+/* ---------------------- sidemenu ------------------------ */
+
+
 .list-active {
   transform: translateX(0%) !important;
   transition: .5s;
 }
 
-.loginDisplay {
+.sidemenu {
   font-family: 'Caveat', cursive, 'RocknRoll One', sans-serif;
   background-color: white;
   position: fixed;
@@ -177,26 +311,71 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: 1px solid gray;
 }
 
-.signUp,
-.login {
-  margin-top: 80px;
+.sidemenu h2 {
+  border-bottom: 1px solid gray;
+}
+
+.flex {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.signUp label,
-.login label {
+.flex label {
   display: inline-block;
   text-align: center;
-  margin: 10px 0;
-  width: 80px;
+  width: 120px;
+  font-weight: bold;
 }
 
-.signUp button,
-.login button {
-  width: 70px;
-  margin-top: 15px;
+.univ, .club, .text, .img {
+  margin: 20px 0;
 }
+
+.univ, .club {
+  width: 280px;
+}
+
+.img, .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img label {
+  width: 200px;
+}
+
+.submit {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit button {
+  width: 120px;
+  height: 30px;
+  background-color: #ffd61a;
+  box-shadow: 0 3px #ba9907;
+  border-radius: 3px;
+  border: none;
+  transition: .3s;
+}
+
+.submit button:hover {
+  opacity: .8;
+}
+
+.submit button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+  transition: .3s;
+}
+
+
