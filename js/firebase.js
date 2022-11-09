@@ -4,6 +4,7 @@ import {
 
 import {
   getAuth,
+  signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
@@ -36,7 +37,6 @@ $('#signupBtn').on('click', () => {
     $('.error').text('パスワードと確認用パスワードが一致しません。');
     return
   }
-
   // メールアドレス、パスワードの登録
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -44,8 +44,12 @@ $('#signupBtn').on('click', () => {
       // const user = userCredential.user;
       // console.log(user);
       alert('登録が完了しました。')
+      $('#signupMail').val('');
+      $('#signupPass').val('');
       $('.signup').hide();
+      $('.top').hide();
       $('.home').fadeIn();
+      $('header').fadeIn();
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -60,7 +64,9 @@ $('#signupBtn').on('click', () => {
       }
       // console.log(errorCode); // if文の中でエラーコードを使用するため呼んだ
     });
-})
+});
+
+
 
 // ログインの処理
 $('#loginBtn').on('click', () => {
@@ -71,10 +77,14 @@ $('#loginBtn').on('click', () => {
   }
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // const user = userCredential.user;
+      const user = userCredential.user;
       // ログイン成功時に起こる処理
+      $('#loginMail').val('');
+      $('#loginPass').val('');
       $('.login').hide();
+      $('.top').hide();
       $('.home').fadeIn();
+      $('header').fadeIn();
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -91,4 +101,20 @@ $('#loginBtn').on('click', () => {
         return
       }
     });
+})
+
+// ログアウトの処理
+$('#logout').on('click', () => {
+  signOut(auth)
+    .then(() => {
+      alert('ログアウトしました。');
+      $('.home').hide();
+      $('header').hide();
+      $('.login').fadeIn();
+      $('.top').fadeIn();
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(error);
+    })
 })
