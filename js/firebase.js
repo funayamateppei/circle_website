@@ -101,7 +101,7 @@ $('#loginBtn').on('click', () => {
   const email = $('#loginMail').val();
   const password = $('#loginPass').val();
   if (email === '' || password === '') {
-    alert('メールアドレス、パスワードを入力してください')
+    $('error').text('メールアドレス、パスワードを入力してください')
   }
   signInWithEmailAndPassword(auth, email, password)
     .then(async (userCredential) => {
