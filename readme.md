@@ -1,9 +1,17 @@
 ## サークル掲載サイト
+- ログイン認証機能実装
+
+- formに入力し、登録することで情報を掲示できる
+
+- ユーザーに紐づけて情報を保存するため、
 
 # 参考にしたサイト
 - ログイン機能（JSとFirebase）
   - https://firebase.google.com/docs/auth/web/start?authuser=0&hl=ja
   - https://www.azukipan.com/posts/firebase-authentication-logout/
+
+- Firestore 大まかな説明
+  - https://zenn.dev/nash/articles/6e18bd94eca63e
 
 - Firestore 大まかな説明 公式ドキュメントの方がわかりやすいけど一応
   - https://qiita.com/azukiazusa/items/2cb7405c47ac38fa3fd1
@@ -14,6 +22,9 @@
 - Firebase Storage 画像保存方法
   - https://firebase.google.com/docs/storage/web/upload-files?hl=ja
   - https://norm-nois.com/blog/archives/4080
+
+- Firestore 単一ドキュメントの取得
+  - https://www.wakuwakubank.com/posts/723-firebase-firestore-query/
 
 - Firebase クエリまとめサイト
   - https://zenn.dev/tentel/articles/ea7d5c03e68e6d142d98
