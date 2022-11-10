@@ -10,7 +10,7 @@
 /* ---------------------------- header ----------------------------- */
 header {
   background-color: rgba(79, 143, 255, .8);
-  display: none;
+  /* display: none; */
 }
 
 header {
@@ -42,9 +42,9 @@ header .container {
 
 /* ----------------------------- login ------------------------------- */
 /* 最初の画面 */
-/* .login {
+.login {
   display: none;
-} */
+}
 
 .loginForm {
   margin: 50px;
@@ -111,6 +111,10 @@ header .container {
   border-radius: 4px;
 }
 
+.signupName {
+  margin: 20px;
+}
+
 .signupForm h2 {
   text-align: center;
 }
@@ -144,6 +148,10 @@ header .container {
 }
 
 /* --------------------- top ----------------------- */
+.top {
+  display: none !important;
+}
+
 .top {
   display: flex;
   align-items: center;
@@ -221,8 +229,42 @@ header .container {
 }
 
 .snsLink a {
-  width: 100px;
+  width: 150px;
   margin: 10px;
+}
+
+#instaLink {
+  text-decoration: none;
+  transition: .5s;
+  text-align: center;
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+  padding: 5px;
+  border-radius: 4px;
+}
+#instaLink:hover {
+  opacity: .8;
+}
+#instaLink:active {
+  transition: .5s;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+#twitterLink {
+  text-decoration: none;
+  transition: .5s;
+  text-align: center;
+  background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgb(233, 248, 255) 0%, rgba(0, 212, 255, 1) 100%);
+  padding: 5px;
+  border-radius: 4px;
+}
+#twitterLink:hover {
+  opacity: .8;
+}
+#twitterLink:active {
+  transition: .5s;
+  background: rgb(0, 212, 0);
+  background: linear-gradient(90deg, rgba(0, 212, 0, 1) 0%, rgba(0, 212, 255, 1) 35%);
 }
 
 /* -------------------------------------------------------------------- */
@@ -286,8 +328,6 @@ header .container {
 
 
 /* ---------------------- sidemenu ------------------------ */
-
-
 .list-active {
   transform: translateX(0%) !important;
   transition: .5s;
@@ -295,13 +335,13 @@ header .container {
 
 .sidemenu {
   font-family: 'Caveat', cursive, 'RocknRoll One', sans-serif;
-  background-color: white;
+  background-color: rgb(223, 255, 255);
   position: fixed;
   top: 0;
   right: 0;
-  width: 350px;
+  width: 500px;
   height: 100%;
-  padding-top: 150px;
+  padding-top: 80px;
   z-index: 1;
   transform: translateX(100%);
   transition: .5s;
@@ -346,8 +386,27 @@ header .container {
   justify-content: center;
 }
 
+.text textarea {
+  width: 350px;
+}
+
 .img label {
   width: 200px;
+}
+
+.snsLinkbar {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.snsLinkbar label {
+  width: 80px;
+}
+
+.snsLinkbar input {
+  width: 100px;
 }
 
 .submit {

@@ -6,17 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/style.css">
   <title>各大学サークル掲載サイト</title>
 </head>
 
 <body>
+  <!-- ------------ top --------------- -->
     <div class="top">
       <div class="container">
         <h1>サークル掲載サイト</h1>
       </div>
     </div>
 
+    <!-- ------------ header ---------------- -->
   <header>
     <div class="container">
       <button id="mypage">マイページへ</button>
@@ -36,24 +41,33 @@
               <h2>Form</h2>
               <div class="form">
                 <div class="univ">
-                  <label for="univName">大学名</label>
+                  <label for="univName">大学名(必須)</label>
                   <input id="univName" type="text">
                 </div>
                 <div class="club">
                   <label for="clubName">サークル名</label>
-                  <input id="clubName" type="password">
+                  <input id="clubName" type="text">
                 </div>
                 <div class="text">
                   <label for="text">活動内容</label>
                   <textarea name="text" id="text" cols="30" rows="10"></textarea>
                 </div>
                 <div class="img">
-                  <label for="imgForm">画像(３枚まで)</label>
+                  <label for="imgForm">画像</label>
                   <input id="imgForm" type="file" name="img" accept=".png, .jpg, .jpeg">
+                </div>
+                <div class="snsLinkbar">
+                  <p>SNSアカウント名(任意)</p>
+                  <div>
+                    <label for="insta">instagram</label>
+                    <input id="insta" type="text">
+                    <label for="twitter">Twitter</label>
+                    <input id="twitter" type="text">
+                  </div>
                 </div>
               </div>
               <div class="submit">
-                <button>登録</button>
+                <button type="submit">登録</button>
                 <p>(すでに登録している人は更新されます)</p>
               </div>
             </div>
@@ -96,6 +110,10 @@
     <div class="container">
       <div class="signupForm">
         <h2>新規登録</h2>
+        <div class="signupName">
+          <label for="signupName">ユーザー名:</label>
+          <input id="signupName" type="text">
+        </div>
         <div class="mailForm">
           <label for="signupMail">メールアドレス:</label>
           <input id="signupMail" type="email">
@@ -145,8 +163,11 @@
             </div>
           </div>
           <div class="snsLink">
-            <a href="#">instagram</a>
-            <a href="#">Twitter</a>
+            <a id="instaLink" href="#">
+              <span class="fa-brands fa-instagram"></span> instagram
+            </a>
+            <a id="twitterLink" href="#">
+              <span class="fa-brands fa-twitter"></span> Twitter
           </div>
         </div>
 
@@ -162,8 +183,12 @@
             </div>
           </div>
           <div class="snsLink">
-            <a href="#">instagram</a>
-            <a href="#">Twitter</a>
+            <a id="instaLink" href="#">
+              <span class="fa-brands fa-instagram"></span> instagram
+            </a>
+            <a id="twitterLink" href="#">
+              <span class="fa-brands fa-twitter"></span> Twitter
+            </a>
           </div>
         </div>
 
@@ -171,6 +196,42 @@
     </div>
   </div>
   <!-- ---------- /Home ------------- -->
+
+  <!-- ------------ mypage --------------- -->
+
+  <div class="mypage">
+    <div class="container">
+          <h2>ユーザー名 : </h2>
+          <p>メールアドレス : </p>
+
+      <div class="item">
+        <h2>LYNX</h2>
+        <div class="description">
+          <img src="../img/IMG_7850-ori.jpg" alt="circle-img">
+          <div class="sentence">
+            <p id="workDetail">活動内容</p>
+            <p id="sentence">
+              活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle
+            </p>
+          </div>
+        </div>
+        <div class="snsLink">
+          <a id="instaLink" href="#">
+            <span class="fa-brands fa-instagram"></span> instagram
+          </a>
+          <a id="twitterLink" href="#">
+            <span class="fa-brands fa-twitter"></span> Twitter
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ------------ /mypage --------------- -->
+
+
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
