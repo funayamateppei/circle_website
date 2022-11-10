@@ -15,10 +15,12 @@ import {
   collection,
   addDoc,
   getDocs,
+  getDoc,
   setDoc,
   query,
   where,
   doc,
+  limit,
 } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js"
 
 import {
@@ -29,7 +31,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAL8_-e9Q7xvWLiwRr6vC9-9oOSImNtGeI",
+  apiKey: "",
   authDomain: "club-website-ad955.firebaseapp.com",
   projectId: "club-website-ad955",
   storageBucket: "club-website-ad955.appspot.com",
@@ -90,7 +92,6 @@ $('#signupBtn').on('click', () => {
       }
       // console.log(errorCode); // if文の中でエラーコードを使用するため呼んだ
     });
-
 });
 
 
@@ -103,7 +104,7 @@ $('#loginBtn').on('click', () => {
     alert('メールアドレス、パスワードを入力してください')
   }
   signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       // const user = userCredential.user;
       // console.log(user.email);
       // ログイン成功時に起こる処理
@@ -111,9 +112,51 @@ $('#loginBtn').on('click', () => {
       $('#loginPass').val('');
       $('.login').hide();
       $('.top').hide();
+      $('.mypage').hide();
       $('.home').fadeIn();
       $('header').fadeIn();
       $('.error').text('');
+      // ログインしたときに２件だけ表示する（あとは検索して！）
+      const q = query(collection(db, "users"), limit(2));
+      const querySnapshot = await getDocs(q);
+      const htmlElements = [];
+      querySnapshot.forEach((doc) => {
+        htmlElements.push(`
+          <div class="item">
+            <div class="name">
+              <h2>${doc.data().club}</h2>
+              <p>${doc.data().univ}</p>
+            </div>
+            <div class="description">
+              <img src="${doc.data().img}">
+              <div class="sentence">
+                <p id="workDetail">活動内容</p>
+                <p id="sentence">${doc.data().text}</p>
+              </div>
+            </div>
+            <div class="snsLink">
+              <a id="instaLink" target="_blank" 
+                href="https://www.instagram.com/${doc.data().insta}/">
+                <span class="fa-brands fa-instagram"></span> instagram</a>
+              <a id="twitterLink" target="_blank" 
+                href="https://twitter.com/${doc.data().twitter}/">
+                <span class="fa-brands fa-twitter"></span> Twitter</a>
+            </div>
+          </div>
+        `)
+      })
+      htmlElements.forEach(() => {
+        $('.homeItem').html(htmlElements);
+      })
+      querySnapshot.forEach((doc) => {
+        // もしデータが入っていたら表示する（入っていなかったら隠す）
+        if (doc.data().insta === "") {
+          $('#instaLink').hide();
+        }
+        if (doc.data().twitter === "") {
+          $('#twitterLink').hide();
+        }
+      })
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -138,6 +181,8 @@ $('#loginBtn').on('click', () => {
   });
 })
 
+
+
 // ログアウトの処理
 $('#logout').on('click', () => {
   signOut(auth)
@@ -145,8 +190,10 @@ $('#logout').on('click', () => {
       alert('ログアウトしました。');
       $('.home').hide();
       $('header').hide();
+      $('.mypage').hide();
       $('.login').fadeIn();
       $('.top').fadeIn();
+      $('.item').remove();
     })
     .catch((error) => {
       console.log(error);
@@ -154,9 +201,12 @@ $('#logout').on('click', () => {
     })
 })
 
+
+
+
 let documentId = '';
 // firestoreに情報追加
-$('.submit').on('click', () => {
+$('.submit button').on('click', () => {
   // フォームの内容をfirestoreに保存する
   // storageに画像保存
   const files = document.getElementById('imgForm').files
@@ -168,6 +218,7 @@ $('.submit').on('click', () => {
       getDownloadURL(imgfiles).then((url) => {
         console.log(url);
         const imgURL = url; // 定数に入れておく
+
         // userのuidが欲しいから、今ログインしているuserの状況を取得する
         onAuthStateChanged(auth, (user) => {
           if (user) {
@@ -193,13 +244,146 @@ $('.submit').on('click', () => {
                   insta: $('#insta').val(),
                   twitter: $('#twitter').val()
                 }, { merge: true })
+                alert('データの送信が完了しました。')
               })
           }
         });
       })
-      $('#imgForm').val('')
-    });
+    })
 });
 
 
 // マイページへ移動したときに起きる処理（ログインユーザーに登録してある情報を表示）
+$('#mypage').on('click', () => {
+  $('#univName').val('');
+  $('#clubName').val('');
+  $('#text').val('');
+  $('#imgForm').val('');
+  $('#insta').val('');
+  $('#twitter').val('');
+  // userのuidが欲しいから、今ログインしているuserの状況を取得する
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      console.log(uid);
+      // 取得したuidとusersコレクションの中のuidプロパティが一致するドキュメントID取得
+      getDocs(query((collection(db, 'users')), where('uid', '==', uid)))
+        .then(async snapshot => {
+          console.log(snapshot);
+          snapshot.forEach(doc => {   // ここが何を繰り返してんのかわからんゴミ
+            console.log(`${doc.id}`);
+            // グローバルで定義した空のdocumentIdに戻り値として渡す
+            return documentId = doc.id;
+          })
+          const docRef = doc(db, 'users', documentId);
+          const docSnap = await getDoc(docRef);
+          console.log(docSnap.data());
+          const htmlElements = [];
+          htmlElements.push(`
+            <h2>ユーザー名 : ${docSnap.data().username}</h2>
+            <p>メールアドレス : ${docSnap.data().email}</p>
+            <div class="item">
+              <div class="name">
+                <h2>${docSnap.data().club}</h2>
+                <p>${docSnap.data().univ}</p>
+              </div>
+              <div class="description">
+                <img src="${docSnap.data().img}">
+                <div class="sentence">
+                  <p id="workDetail">活動内容</p>
+                  <p id="sentence">${docSnap.data().text}</p>
+                </div>
+              </div>
+              <div class="snsLink">
+                <a id="instaLink" target="_blank" 
+                  href="https://www.instagram.com/${docSnap.data().insta}/">
+                  <span class="fa-brands fa-instagram"></span> instagram</a>
+                <a id="twitterLink" target="_blank" 
+                  href="https://twitter.com/${docSnap.data().twitter}/">
+                  <span class="fa-brands fa-twitter"></span> Twitter</a>
+              </div>
+            </div>
+          `)
+          $('.mypageItem').html(htmlElements);
+          console.log(docSnap.data().insta)
+          // もしデータが入っていたら表示する（入っていなかったら隠す）
+          if (docSnap.data().insta === "") {
+            $('#instaLink').hide();
+          }
+          if (docSnap.data().twitter === "") {
+            $('#twitterLink').hide();
+          }
+        })
+    }
+  })
+  $('.home').hide();
+  $('#mypage').hide();
+  $('.mypage').fadeIn();
+  $('#home').fadeIn();
+  $('.update').text('内容を変更したい方はこちら');
+  $('.submit p').hide();
+})
+
+
+// HOMEに戻るボタンを押したときにマイページを非表示にしてHOMEを表示する
+$('#home').on('click', () => {
+  $('#home').hide();
+  $('.mypage').hide();
+  $('.home').fadeIn();
+  $('#mypage').fadeIn();
+  $('.update').text('掲載したい方はこちら');
+  $('.submit p').fadeIn();
+})
+
+
+// HOMEを開いたときに、ランダムで５件ずつ表示する機能
+
+
+
+// 検索機能
+$('.collegeName').on('click', async () => {
+  const str = $('#collegeName').val();
+  const q = query(collection(db, "users"), where("univ", "==", str));
+  const querySnapshot = await getDocs(q);
+  const htmlElements = [];
+  querySnapshot.forEach((doc) => {
+    htmlElements.push(`
+      <div class="item">
+        <div class="name">
+          <h2>${doc.data().club}</h2>
+          <p>${doc.data().univ}</p>
+        </div>
+        <div class="description">
+          <img src="${doc.data().img}">
+          <div class="sentence">
+            <p id="workDetail">活動内容</p>
+            <p id="sentence">${doc.data().text}</p>
+          </div>
+        </div>
+        <div class="snsLink">
+          <a id="instaLink" target="_blank" 
+            href="https://www.instagram.com/${doc.data().insta}/">
+            <span class="fa-brands fa-instagram"></span> instagram</a>
+          <a id="twitterLink" target="_blank" 
+            href="https://twitter.com/${doc.data().twitter}/">
+            <span class="fa-brands fa-twitter"></span> Twitter</a>
+        </div>
+      </div>
+    `)
+  })
+  htmlElements.forEach(() => {
+    $('.homeItem').html(htmlElements);
+  })
+  querySnapshot.forEach((doc) => {
+    // もしデータが入っていたら表示する（入っていなかったら隠す）
+    if (doc.data().insta === "") {
+      $('#instaLink').hide();
+    }
+    if (doc.data().twitter === "") {
+      $('#twitterLink').hide();
+    }
+  })
+})
+
+
+  // アカウント削除機能ができなかった

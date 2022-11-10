@@ -10,32 +10,34 @@
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/style.css">
-  <title>各大学サークル掲載サイト</title>
+  <title>サークル掲載サイト</title>
 </head>
 
 <body>
   <!-- ------------ top --------------- -->
-    <div class="top">
-      <div class="container">
-        <h1>サークル掲載サイト</h1>
-      </div>
+  <div class="top">
+    <div class="container">
+      <h1>サークル掲載サイト</h1>
     </div>
+  </div>
 
-    <!-- ------------ header ---------------- -->
+  <!-- ------------ header ---------------- -->
   <header>
     <div class="container">
       <button id="mypage">マイページへ</button>
+      <button id="home">HOMEに戻る</button>
       <div class="end">
         <button id="logout">ログアウト</button>
         <div class="hamburger">
           <div class="nav">
-            <p>掲載したいサークルが<br>ある方はこちら</p>
+            <p class="update">掲載したい方はこちら</p>
             <div class="navbar">
               <div class="line line1"></div>
               <div class="line line2"></div>
               <div class="line line3"></div>
             </div>
           </div>
+
           <div class="sidemenu">
             <div class="flex">
               <h2>Form</h2>
@@ -45,15 +47,15 @@
                   <input id="univName" type="text">
                 </div>
                 <div class="club">
-                  <label for="clubName">サークル名</label>
+                  <label for="clubName">サークル名(必須)</label>
                   <input id="clubName" type="text">
                 </div>
                 <div class="text">
-                  <label for="text">活動内容</label>
+                  <label for="text">活動内容(必須)</label>
                   <textarea name="text" id="text" cols="30" rows="10"></textarea>
                 </div>
                 <div class="img">
-                  <label for="imgForm">画像</label>
+                  <label for="imgForm">画像(必須)</label>
                   <input id="imgForm" type="file" name="img" accept=".png, .jpg, .jpeg">
                 </div>
                 <div class="snsLinkbar">
@@ -90,7 +92,7 @@
         </div>
         <div class="passForm">
           <label for="loginPass">パスワード:</label>
-          <input id="loginPass" type="pass">
+          <input id="loginPass" type="password">
         </div>
         <button id="loginBtn">ログイン</button>
         <p class="error"></p>
@@ -120,11 +122,11 @@
         </div>
         <div class="passForm">
           <label for="signupPass">パスワード:</label>
-          <input id="signupPass" type="pass">
+          <input id="signupPass" type="password">
         </div>
         <div class="passForm">
           <label for="signupPass2">パスワード:</label>
-          <input id="signupPass2" type="pass" placeholder="確認用">
+          <input id="signupPass2" type="password" placeholder="確認用">
         </div>
         <button id="signupBtn">新規登録</button>
         <p class="error"></p>
@@ -145,90 +147,28 @@
         <h2>大学検索</h2>
         <label for="collegeName">大学名</label>
         <input id='collegeName' type="text" placeholder="大学名">
-        <button form="collegeName">Search</button>
+        <button class="collegeName">Search</button>
       </div>
     </div>
     <!-- サークル情報表示部分 -->
     <div class="display">
       <div class="container">
-        <div class="item">
-          <h2>LYNX</h2>
-          <div class="description">
-            <img src="../img/IMG_7850-ori.jpg" alt="circle-img">
-            <div class="sentence">
-              <p id="workDetail">活動内容</p>
-              <p id="sentence">
-                活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle
-              </p>
-            </div>
-          </div>
-          <div class="snsLink">
-            <a id="instaLink" href="#">
-              <span class="fa-brands fa-instagram"></span> instagram
-            </a>
-            <a id="twitterLink" href="#">
-              <span class="fa-brands fa-twitter"></span> Twitter
-          </div>
+        <div class="homeItem">
+          <!-- ここに内容が表示される -->
         </div>
-
-        <div class="item">
-          <h2>LYNX</h2>
-          <div class="description">
-            <img src="../img/IMG_7850-ori.jpg" alt="circle-img">
-            <div class="sentence">
-              <p id="workDetail">活動内容</p>
-              <p id="sentence">
-                活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle
-              </p>
-            </div>
-          </div>
-          <div class="snsLink">
-            <a id="instaLink" href="#">
-              <span class="fa-brands fa-instagram"></span> instagram
-            </a>
-            <a id="twitterLink" href="#">
-              <span class="fa-brands fa-twitter"></span> Twitter
-            </a>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
   <!-- ---------- /Home ------------- -->
 
   <!-- ------------ mypage --------------- -->
-
   <div class="mypage">
     <div class="container">
-          <h2>ユーザー名 : </h2>
-          <p>メールアドレス : </p>
-
-      <div class="item">
-        <h2>LYNX</h2>
-        <div class="description">
-          <img src="../img/IMG_7850-ori.jpg" alt="circle-img">
-          <div class="sentence">
-            <p id="workDetail">活動内容</p>
-            <p id="sentence">
-              活動内容を入力aaaaaaasasasasasasaasasasaassakfvsdfkmsdmnrwnvokrmkenfmckewmncfklnmekfmncklwedmkledfcmnlkedmwflkmndklfmnlkdmnfklewmnllkwedcmwklmrfwkmefrwmfkwrmforwnofgwrngoirwkemfklwfmkrenfgnwrgnrewongfoewngmflwerfnrwgmrwnmgfklrnwgflknklfnkrlwnklrwnfklnmerfwrklngklrwnlkensadfgwrtemogmkfrle
-            </p>
-          </div>
-        </div>
-        <div class="snsLink">
-          <a id="instaLink" href="#">
-            <span class="fa-brands fa-instagram"></span> instagram
-          </a>
-          <a id="twitterLink" href="#">
-            <span class="fa-brands fa-twitter"></span> Twitter
-          </a>
-        </div>
+      <div class="mypageItem">
+        <!-- ここに内容が表示される -->
       </div>
     </div>
   </div>
-
-
-
   <!-- ------------ /mypage --------------- -->
 
 

@@ -10,7 +10,33 @@
 /* ---------------------------- header ----------------------------- */
 header {
   background-color: rgba(79, 143, 255, .8);
-  /* display: none; */
+  display: none;
+}
+
+#mypage,
+#home,
+#logout {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(249, 249, 252);
+  box-shadow: 0 3px #5258cf;
+  transition: .3s;
+}
+
+#mypage:hover,
+#home:hover,
+#logout:hover {
+  opacity: .8;
+}
+
+#mypage:active,
+#home:active,
+#logout:active {
+  box-shadow: none;
+  transform: translateY(3px);
+  transition: .3s;
 }
 
 header {
@@ -29,7 +55,7 @@ header .container {
 
 .end {
   position: absolute;
-  top: 10px;
+  top: 16.5px;
   right: 10px;
   display: flex;
   align-items: center;
@@ -38,13 +64,18 @@ header .container {
 #logout {
   margin-right: 20px;
 }
+
+#home {
+  display: none;
+}
+
 /* ----------------------------------------------------------------- */
 
 /* ----------------------------- login ------------------------------- */
 /* 最初の画面 */
-.login {
+/* .login {
   display: none;
-}
+} */
 
 .loginForm {
   margin: 50px;
@@ -79,6 +110,23 @@ header .container {
 
 .loginForm button {
   margin: 20px;
+  width: 120px;
+  height: 30px;
+  background-color: #ffd61a;
+  box-shadow: 0 3px #ba9907;
+  border-radius: 3px;
+  border: none;
+  transition: .3s;
+}
+
+.loginForm button:hover {
+  opacity: .8;
+}
+
+.loginForm button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+  transition: .3s;
 }
 
 .signupLink {
@@ -133,7 +181,25 @@ header .container {
 
 .signupForm button {
   margin: 20px;
+  width: 120px;
+  height: 30px;
+  background-color: #ffd61a;
+  box-shadow: 0 3px #ba9907;
+  border-radius: 3px;
+  border: none;
+  transition: .3s;
 }
+
+.signupForm button:hover {
+  opacity: .8;
+}
+
+.signupForm button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+  transition: .3s;
+}
+
 
 .loginLink {
   display: flex;
@@ -148,9 +214,9 @@ header .container {
 }
 
 /* --------------------- top ----------------------- */
-.top {
+/* .top {
   display: none !important;
-}
+} */
 
 .top {
   display: flex;
@@ -241,9 +307,11 @@ header .container {
   padding: 5px;
   border-radius: 4px;
 }
+
 #instaLink:hover {
   opacity: .8;
 }
+
 #instaLink:active {
   transition: .5s;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -254,13 +322,15 @@ header .container {
   transition: .5s;
   text-align: center;
   background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgb(233, 248, 255) 0%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(90deg, rgb(233, 248, 255) 0%, rgba(0, 212, 255, 1) 100%);
   padding: 5px;
   border-radius: 4px;
 }
+
 #twitterLink:hover {
   opacity: .8;
 }
+
 #twitterLink:active {
   transition: .5s;
   background: rgb(0, 212, 0);
@@ -364,22 +434,32 @@ header .container {
   align-items: center;
 }
 
+.univ,
+.club {
+  display: flex;
+}
+
 .flex label {
   display: inline-block;
   text-align: center;
-  width: 120px;
+  width: 150px;
   font-weight: bold;
 }
 
-.univ, .club, .text, .img {
+.univ,
+.club,
+.text,
+.img {
   margin: 20px 0;
 }
 
-.univ, .club {
+.univ,
+.club {
   width: 280px;
 }
 
-.img, .text {
+.img,
+.text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -399,6 +479,10 @@ header .container {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+}
+
+.snsLinkbar p {
+  font-weight: bold;
 }
 
 .snsLinkbar label {
@@ -441,6 +525,13 @@ header .container {
 /* -------------------- mypage ------------------------ */
 .mypage {
   display: none;
-  background-color: #5258cf;
-  /* 背景色を白い色に設定する */
+}
+
+.name {
+  display: flex;
+  align-items: center;
+}
+
+.name p {
+  margin-left: 20px;
 }
