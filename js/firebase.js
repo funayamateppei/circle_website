@@ -1,7 +1,5 @@
 import {
   initializeApp,
-  // firebase,
-  // getapp
 } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
 
 import {
@@ -31,7 +29,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyAL8_-e9Q7xvWLiwRr6vC9-9oOSImNtGeI",
   authDomain: "club-website-ad955.firebaseapp.com",
   projectId: "club-website-ad955",
   storageBucket: "club-website-ad955.appspot.com",
@@ -92,7 +90,7 @@ $('#signupBtn').on('click', () => {
       }
       // console.log(errorCode); // if文の中でエラーコードを使用するため呼んだ
     });
-  
+
 });
 
 
@@ -136,7 +134,7 @@ $('#loginBtn').on('click', () => {
     if (user) {
       const uid = user.uid;
       console.log(uid);
-    } 
+    }
   });
 })
 
@@ -182,7 +180,7 @@ $('.submit').on('click', () => {
                 snapshot.forEach(doc => {   // ここがなんで繰り返してんのかまじわからんゴミ
                   console.log(`${doc.id}`);
                   // グローバルで定義した空のdocumentIdに戻り値として渡す
-                  return documentId = doc.id; 
+                  return documentId = doc.id;
                 })
                 // 取得したドキュメントIDを指定して中身にdataを追加する
                 // 第三引数にmerge: trueを入れることで元からあったものが消えない
@@ -196,7 +194,7 @@ $('.submit').on('click', () => {
                   twitter: $('#twitter').val()
                 }, { merge: true })
               })
-          } 
+          }
         });
       })
       $('#imgForm').val('')

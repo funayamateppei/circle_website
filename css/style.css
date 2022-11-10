@@ -438,3 +438,9 @@ header .container {
 }
 
 
+/* -------------------- mypage ------------------------ */
+.mypage {
+  display: none;
+  background-color: #5258cf;
+  /* 背景色を白い色に設定する */
+}
